@@ -19,30 +19,30 @@
               </div>
               <!-- Relacionales SQL -->
               <div class="col-md-6">
-                <select name="directorPrincipal">
+                <select name="directorPrincipal" class="form-select mb-3">
                   <% for (const director of directores) { %>
-                    <option value="<%= director.id %>">
+                    <option value=" <%=director.id %>">
                       <%= director.nombre %>
                     </option>
                     <% } %>
                 </select>
-                <select name="generoPrincipal">
+                <select name="generoPrincipal" class="form-select mb-3">
                   <% for (const genero of generos) { %>
-                    <option value="<%= genero.id %>">
+                    <option value=" <%=genero.id %>">
                       <%= genero.nombre %>
                     </option>
                     <% } %>
                 </select>
-                <select name="productora">
+                <select name="productora" class="form-select mb-3">
                   <% for (const productor of productores) { %>
                     <option value="<%= productor.id %>">
                       <%= productor.nombre %>
                     </option>
                     <% } %>
                 </select>
-                <select name="tipo">
+                <select name="tipo" class="form-select mb-3">
                   <% for (const tipo of tipos) { %>
-                    <option value="<%= tipo.id %>">
+                    <option value=" <%=tipo.id %>">
                       <%= tipo.nombre %>
                     </option>
                     <% } %>
