@@ -12,32 +12,45 @@
                   autofocus />
                 <input required type="text" name="titulo" placeholder="Titulo" class="form-control mb-3" />
                 <input required type="text" name="sinopsis" placeholder="Sinopsis" class="form-control mb-3" />
-                <input required type="text" name="url" placeholder="Url" class="form-control mb-3" />
-                <input required type="text" name="imagen" placeholder="imagen" class="form-control mb-3" />
+                <input required type="text" name="urlPelicula" placeholder="Url" class="form-control mb-3" />
+                <input required type="text" name="imagenPortada" placeholder="imagen" class="form-control mb-3" />
                 <input required type="text" name="añoEstreno" placeholder="Año de estreno" class="form-control mb-3" />
 
               </div>
               <!-- Relacionales SQL -->
               <div class="col-md-6">
-
-                <input required type="text" name="generoPrincipal" placeholder="Genero Principal"
-                  class="form-control mb-3" />
-                <input required type="text" name="directorPrincipal" placeholder="Genero Principal"
-                  class="form-control mb-3" />
-                <input required type="text" name="generoPrincipal" placeholder="Genero Principal"
-                  class="form-control mb-3" />
-
-                <select name="director">
+                <select name="directorPrincipal">
                   <% for (const director of directores) { %>
-                    <option value="<%= director.nombre %>">
+                    <option value="<%= director.id %>">
                       <%= director.nombre %>
+                    </option>
+                    <% } %>
+                </select>
+                <select name="generoPrincipal">
+                  <% for (const genero of generos) { %>
+                    <option value="<%= genero.id %>">
+                      <%= genero.nombre %>
+                    </option>
+                    <% } %>
+                </select>
+                <select name="productora">
+                  <% for (const productor of productores) { %>
+                    <option value="<%= productor.id %>">
+                      <%= productor.nombre %>
+                    </option>
+                    <% } %>
+                </select>
+                <select name="tipo">
+                  <% for (const tipo of tipos) { %>
+                    <option value="<%= tipo.id %>">
+                      <%= tipo.nombre %>
                     </option>
                     <% } %>
                 </select>
 
               </div>
             </div>
-            <button type="submit" class="btn btn-info">guardar genero</button>
+            <button type="submit" class="btn btn-info">guardar media</button>
           </form>
         </div>
       </div>
@@ -46,12 +59,18 @@
         <table class="table table-dark table-bordered table-hover">
           <thead>
             <tr>
-              <td>n°</td>
-              <td>nombre</td>
-              <td>estado</td>
-              <td>fecha Creacion</td>
-              <td>fecha actualizacion</td>
-              <td>descripcion</td>
+              <td>Serial</td>
+              <td>Titulo</td>
+              <td>Sinopsis</td>
+              <td>Url de pelicula</td>
+              <td>Imagen de la portada</td>
+              <td>Fecha de Creacion</td>
+              <td>Fecha de Actualizacion</td>
+              <td>Año de estreno</td>
+              <td>Genero principal</td>
+              <td>Director principal</td>
+              <td>productora</td>
+              <td>tipo</td>
             </tr>
           </thead>
           <tbody>
@@ -59,13 +78,19 @@
               <% for(var i=0; i < media.length; i++) { %>
                 <tr>
                   <td>
-                    <%= (i + 1) %>
+                    <%= media[i].serial %>
                   </td>
                   <td>
-                    <%= media[i].nombre %>
+                    <%= media[i].titulo %>
                   </td>
                   <td>
-                    <%= media[i].estado %>
+                    <%= media[i].sinopsis %>
+                  </td>
+                  <td>
+                    <%= media[i].urlPelicula %>
+                  </td>
+                  <td>
+                    <%= media[i].imagenPortada %>
                   </td>
                   <td>
                     <%= media[i].fechaCreacion %>
@@ -74,7 +99,19 @@
                     <%= media[i].fechaActualizacion %>
                   </td>
                   <td>
-                    <%= media[i].descripcion %>
+                    <%= media[i].añoEstreno %>
+                  </td>
+                  <td>
+                    <%= media[i].NombreGenero %>
+                  </td>
+                  <td>
+                    <%= media[i].NombreDirector %>
+                  </td>
+                  <td>
+                    <%= media[i].NombreProductor %>
+                  </td>
+                  <td>
+                    <%= media[i].NombreTipo %>
                   </td>
 
                   <td class="d-flex gap-2">
