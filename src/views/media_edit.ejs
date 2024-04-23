@@ -1,0 +1,28 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateMedia/<%= media.id %>" method="POST">
+            <input type="text" name="nombre" value="<%= media.nombre%>" placeholder="nombre" class="form-control mb-2"
+              autofocus required />
+            <input type="text" name="titulo" value="<%= media.titulo%>" placeholder="titulo" class="form-control mb-2"
+              required />
+            />
+            <input type="text" name="sinopsis" value="<%= media.sinopsis%>" placeholder="sinopsis"
+              class="form-control mb-2" required />
+            <input type="text" name="descripcion" value="<%= media.descripcion%>" placeholder="descripcion"
+              class="form-control mb-2" required />
+            <input type="text" name="nombre" value="<%= media.nombre%>" placeholder="nombre" class="form-control mb-2"
+              autofocus required />
+            />
+
+            <button type="submit" class="btn btn-primary">save media</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

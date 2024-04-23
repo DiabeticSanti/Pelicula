@@ -1,0 +1,27 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateProductora/<%= productor.id %>" method="POST">
+            <input type="text" name="nombre" value="<%= productor.nombre%>" placeholder="nombre"
+              class="form-control mb-2" autofocus required />
+            <input type="text" name="estado" value="<%= productor.estado%>" placeholder="estado"
+              class="form-control mb-2" required />
+
+            />
+            <input type="text" name="slogan" value="<%= productor.slogan%>" placeholder="slogan"
+              class="form-control mb-2" required />
+            <input type="text" name="descripcion" value="<%= productor.descripcion%>" placeholder="descripcion"
+              class="form-control mb-2" required />
+            />
+
+            <button type="submit" class="btn btn-primary">save productor</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

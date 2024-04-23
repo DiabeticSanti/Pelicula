@@ -1,0 +1,21 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateDirector/<%= director.id %>" method="POST">
+            <input type="text" name="nombre" value="<%= director.nombre%>" placeholder="nombre"
+              class="form-control mb-2" autofocus required />
+            <input type="text" name="estado" value="<%= director.estado%>" placeholder="estado"
+              class="form-control mb-2" required />
+            />
+
+            <button type="submit" class="btn btn-primary">save director</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

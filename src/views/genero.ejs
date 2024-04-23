@@ -1,0 +1,69 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="">Gestion de los generos</h1>
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>n°</td>
+              <td>nombre</td>
+              <td>estado</td>
+              <td>fecha Creacion</td>
+              <td>fecha actualizacion</td>
+              <td>descripcion</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (generos) { %>
+              <% for(var i=0; i < generos.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= (i + 1) %>
+                  </td>
+                  <td>
+                    <%= generos[i].nombre %>
+                  </td>
+                  <td>
+                    <%= generos[i].estado %>
+                  </td>
+                  <td>
+                    <%= generos[i].fechaCreacion %>
+                  </td>
+                  <td>
+                    <%= generos[i].fechaActualizacion %>
+                  </td>
+                  <td>
+                    <%= generos[i].descripcion %>
+                  </td>
+
+                  <td class="d-flex gap-2">
+                    <a href="/updateGenero/<%= generos[i].id %>" class="btn btn-info">
+                      Edit
+                    </a>
+                    <a href="/deleteGenero/<%= generos[i].id %>" class="btn btn-danger">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <div class="card-body">
+          <form action="/addGeneros" method="POST">
+            <input type="text" name="nombre" placeholder="nombre" class="form-control mb-2" required autofocus />
+            <input type="text" name="estado" placeholder="estado" class="form-control mb-2" required />
+            <input type="text" name="descripcion" placeholder="descripcion" class="form-control mb-2" required />
+
+            <button type="submit" class="btn btn-info">guardar genero</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

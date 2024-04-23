@@ -1,0 +1,23 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateGenero/<%= genero.id %>" method="POST">
+            <input type="text" name="nombre" value="<%= genero.nombre%>" placeholder="nombre" class="form-control mb-2"
+              required autofocus />
+            <input type="text" name="estado" value="<%= genero.estado%>" placeholder="estado"
+              class="form-control mb-2" />
+            <input type="text" name="descripcion" value="<%= genero.descripcion%>" placeholder="descripcion"
+              class="form-control mb-2" required />
+            />
+
+            <button type="submit" class="btn btn-primary">save genero</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

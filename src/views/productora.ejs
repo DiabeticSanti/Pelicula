@@ -1,0 +1,82 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-4">
+    <div class="">
+      <div class="">
+        <h1 class="">Gestion de las Productoras</h1>
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td style="text-align: center">N°</td>
+              <td style="text-align: center">Nombre</td>
+              <td style="text-align: center">Estado</td>
+              <td style="text-align: center">Slogan</td>
+              <td style="text-align: center">Descripcion</td>
+              <td style="text-align: center">Fecha Creacion</td>
+              <td style="text-align: center">Fecha actualizacion</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (productores) { %>
+              <% for(var i=0; i < productores.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= (i + 1) %>
+                  </td>
+                  <td>
+                    <%= productores[i].nombre %>
+                  </td>
+                  <td>
+                    <%= productores[i].estado %>
+                  </td>
+                  <td>
+                    <%= productores[i].slogan %>
+                  </td>
+                  <td>
+                    <%= productores[i].descripcion %>
+                  </td>
+                  <td>
+                    <%= productores[i].fechaCreacion %>
+                  </td>
+                  <td>
+                    <%= productores[i].fechaActualizacion %>
+                  </td>
+
+                  <td class="d-flex gap-2">
+                    <a href="/updateProductora/<%= productores[i].id %>" class="btn btn-info">
+                      Edit
+                    </a>
+                    <a href="/deleteProductor/<%= productores[i].id %>" class="btn btn-danger">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+      </div>
+      <div class="productora_form">
+        <div class="productora__form__container">
+          <form action="/addproductores" method="POST">
+            <input style="text-align: center" required type="text" name="nombre" placeholder="Nombre"
+              class="form-control mb-2" autofocus />
+            <input style="text-align: center" required type="text" name="estado" placeholder="Estado"
+              class="form-control mb-2" />
+            <input style="text-align: center" required type="text" name="slogan" placeholder="Slogan" maxlength="45"
+              class="form-control mb-2" />
+            <input style="text-align: center" required type="text" name="descripcion" placeholder="Descripcion"
+              maxlength="45" class="form-control mb-2" />
+
+            <div style="width: full; display: flex; justify-content: center; align-items: center;">
+              <button type="submit" class="btn btn-info save__button">
+                Guardar productor
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>
